@@ -5,3 +5,6 @@ RUN apt-get update \
     && echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen \
     && locale-gen ru_RU.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
+
+ENV LANG ru_RU.UTF-8
+ENV LC_ALL ru_RU.UTF-8
