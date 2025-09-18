@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres-pinger:
+    build: .
+    container_name: postgres-pinger
+    environment:
+      - CHECK_INTERVAL=${CHECK_INTERVAL}
+      - DB_TEST_USER=${DB_TEST_USER}
+      - DB_TEST_PASSWORD=${DB_TEST_PASSWORD}
+      - LOG_FILE=${LOG_FILE}
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  postgres:
+    build: postgres_ru/
+    container_name: pg17ru
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

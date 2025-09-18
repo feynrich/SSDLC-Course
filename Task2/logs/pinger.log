@@ -1,0 +1,16 @@
+2025-09-18 14:13:56,372 - INFO - Запуск мониторинга PostgreSQL с интервалом 300 секунд
+2025-09-18 14:13:56,372 - ERROR - Критическая ошибка в основном цикле: [Errno 2] No such file or directory: 'db_settings.json'
+2025-09-18 14:14:50,843 - INFO - Запуск мониторинга PostgreSQL с интервалом 300 секунд
+2025-09-18 14:14:50,844 - ERROR - Критическая ошибка в основном цикле: [Errno 2] No such file or directory: 'db_settings.json'
+2025-09-18 14:15:36,061 - INFO - Запуск мониторинга PostgreSQL с интервалом 300 секунд
+2025-09-18 14:15:36,061 - ERROR - Критическая ошибка в основном цикле: [Errno 2] No such file or directory: 'db_settings.json'
+2025-09-18 14:15:59,899 - INFO - Запуск мониторинга PostgreSQL с интервалом 300 секунд
+2025-09-18 14:15:59,899 - ERROR - Не указаны логин или пароль для подключения к БД
+2025-09-18 14:17:30,434 - INFO - Запуск мониторинга PostgreSQL с интервалом 300 секунд
+2025-09-18 14:17:30,436 - ERROR - Ошибка подключения к БД: connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+2025-09-18 14:19:34,482 - INFO - Запуск мониторинга PostgreSQL с интервалом 300 секунд
+2025-09-18 14:19:34,489 - INFO - PostgreSQL version: PostgreSQL 17.6 (Debian 17.6-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
