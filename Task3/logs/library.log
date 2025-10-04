@@ -1,0 +1,83 @@
+2025-10-03 14:48:24,915 - INFO - Успешное подключение к базе данных
+2025-10-03 14:48:57,848 - ERROR - Ошибка при чтении таблицы authors: relation "authors" does not exist
+LINE 1: SELECT * FROM "authors"
+                      ^
+
+2025-10-03 14:49:42,585 - ERROR - Ошибка при фильтрации: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 14:49:51,063 - ERROR - Ошибка при чтении таблицы authors: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 14:58:46,835 - INFO - Соединение с базой данных закрыто
+2025-10-03 15:07:31,002 - INFO - Успешное подключение к базе данных
+2025-10-03 15:07:36,459 - ERROR - Ошибка при чтении таблицы authors: relation "authors" does not exist
+LINE 1: SELECT * FROM "authors"
+                      ^
+
+2025-10-03 15:07:53,222 - ERROR - Ошибка при фильтрации: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 15:09:17,882 - INFO - Успешное подключение к базе данных
+2025-10-03 15:09:21,443 - ERROR - Ошибка при чтении таблицы authors: relation "authors" does not exist
+LINE 1: SELECT * FROM "authors"
+                      ^
+
+2025-10-03 15:10:54,077 - INFO - Соединение с базой данных закрыто
+2025-10-03 15:19:41,924 - INFO - Успешное подключение к базе данных
+2025-10-03 15:19:45,447 - INFO - Успешно получено 4 записей из таблицы authors
+2025-10-03 15:20:05,034 - INFO - Успешно получено 0 записей с фильтром author_id=111
+2025-10-03 15:20:20,738 - INFO - Успешно получено 1 записей с фильтром author_id=4
+2025-10-03 15:20:46,795 - ERROR - Ошибка при фильтрации: invalid input syntax for type integer: "1' or 1 = 1 --"
+LINE 1: SELECT * FROM "authors" WHERE "author_id" = '1'' or 1 = 1 --...
+                                                    ^
+
+2025-10-03 15:22:08,812 - ERROR - Недопустимые параметры: таблица=authors, колонка=1 or 1 = 1 --
+2025-10-03 15:22:20,886 - ERROR - Ошибка при фильтрации: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 15:23:29,158 - ERROR - Ошибка при множественной фильтрации: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 15:25:01,121 - ERROR - Ошибка при множественной фильтрации: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 15:25:57,615 - ERROR - Ошибка при фильтрации: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 15:29:07,332 - ERROR - Ошибка при множественной вставке: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 15:31:17,342 - INFO - Успешно получено 1 записей с фильтром first_name=Фёдор
+2025-10-03 15:31:35,062 - ERROR - Ошибка при фильтрации: column "фгauthor_id" does not exist
+LINE 1: SELECT * FROM "authors" WHERE "фгauthor_id" = '8'
+                                      ^
+HINT:  Perhaps you meant to reference the column "authors.author_id".
+
+2025-10-03 15:32:18,265 - ERROR - Ошибка при вставке записи: current transaction is aborted, commands ignored until end of transaction block
+
+2025-10-03 15:32:43,433 - INFO - Успешно получено 4 записей из таблицы genres
+2025-10-03 15:33:12,950 - INFO - Успешно получено 1 записей с множественным фильтром
+2025-10-03 15:33:42,470 - ERROR - Ошибка при обновлении записи: column "genres_id" does not exist
+LINE 1: UPDATE "genres" SET "genre_name" = 'Хорор' WHERE "genres_id"...
+                                                         ^
+HINT:  Perhaps you meant to reference the column "genres.genre_id".
+
+2025-10-03 15:36:53,512 - ERROR - Ошибка при обновлении записи: column "genres_id" does not exist
+LINE 1: UPDATE "genres" SET "genre_name" = 'Хорор' WHERE "genres_id"...
+                                                         ^
+HINT:  Perhaps you meant to reference the column "genres.genre_id".
+
+2025-10-03 15:39:38,712 - INFO - Соединение с базой данных закрыто
+2025-10-04 06:08:54,370 - INFO - Успешное подключение к базе данных
+2025-10-04 06:09:01,175 - INFO - Успешно получено 4 записей из таблицы authors
+2025-10-04 06:09:20,360 - INFO - Успешно получено 1 записей с фильтром first_name=Лев
+2025-10-04 06:09:50,226 - INFO - Успешно получено 1 записей с множественным фильтром
+2025-10-04 06:10:37,942 - INFO - Успешно обновлена запись 2 в таблице authors
+2025-10-04 06:10:41,714 - INFO - Успешно получено 4 записей из таблицы authors
+2025-10-04 06:12:00,429 - ERROR - Ошибка при массовом обновлении: date/time field value out of range: "0000-00-00"
+LINE 1: UPDATE "authors" SET "birth_date" = '0000-00-00' WHERE "firs...
+                                            ^
+
+2025-10-04 06:12:17,019 - INFO - Соединение с базой данных закрыто
+2025-10-04 06:12:39,497 - INFO - Успешное подключение к базе данных
+2025-10-04 06:13:18,847 - INFO - Успешно обновлено 2 записей
+2025-10-04 06:14:03,867 - INFO - Успешно вставлена запись с ID 5 в таблицу authors
+2025-10-04 06:15:17,234 - INFO - Успешно вставлено 2 записей в таблицу authors
+2025-10-04 06:16:14,044 - ERROR - Ошибка при вставке записи: column "author_id" of relation "books" does not exist
+LINE 1: INSERT INTO "books" ("title", "author_id", "genre_id", "isbn...
+                                      ^
+
+2025-10-04 06:17:54,561 - INFO - Соединение с базой данных закрыто
