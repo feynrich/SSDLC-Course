@@ -47,16 +47,24 @@ class LibraryDatabase:
             self.logger.error(f"Ошибка подключения к базе данных: {str(e)}")
             return False
     
-    def safe_column_name(self, column: str) -> str:
+    def safe_column_name(self, column: str, table: str = None) -> str:
         """Безопасная проверка имени колонки"""
         valid_columns = {
-            'authors': ['author_id', 'first_name', 'last_name', 'birth_date', 'created_at'],
-            'genres': ['genre_id', 'genre_name', 'description'],
-            'books': ['book_id', 'title', 'author_id', 'genre_id', 'isbn', 'publication_year', 'available_copies', 'created_at'],
-            'book_loans': ['loan_id', 'book_id', 'borrower_name', 'loan_date', 'due_date', 'return_date', 'status']
+            'authors': ['authors_id', 'first_name', 'last_name', 'birth_date', 'created_at'],
+            'genres': ['genres_id', 'genre_name', 'description'],
+            'books': ['books_id', 'title', 'authors_id', 'genres_id', 'isbn', 'publication_year', 'available_copies', 'created_at'],
+            'book_loans': ['loan_id', 'books_id', 'borrower_name', 'loan_date', 'due_date', 'return_date', 'status']
         }
         
-        return column if column.replace('_', '').isalnum() else None
+
+        if not column.replace('_', '').isalnum():
+            return None
+        
+        if table and table in valid_columns:
+            if column not in valid_columns[table]:
+                return None
+        
+        return column
     
     def safe_table_name(self, table: str) -> str:
         """Безопасная проверка имени таблицы"""
@@ -83,7 +91,7 @@ class LibraryDatabase:
     def select_with_filter(self, table: str, column: str, value: Any) -> List[Dict[str, Any]]:
         """SELECT * FROM table WHERE column = value"""
         safe_table = self.safe_table_name(table)
-        safe_column = self.safe_column_name(column)
+        safe_column = self.safe_column_name(column, table)
         
         if not safe_table or not safe_column:
             self.logger.error(f"Недопустимые параметры: таблица={table}, колонка={column}")

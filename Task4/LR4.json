@@ -1,0 +1,1185 @@
+{
+  "version": "2.5.0",
+  "summary": {
+    "title": "LR-4",
+    "owner": "askrokhin@edu.hse.ru",
+    "description": "Система для доступа к базе данных библиотеки",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "LR-4",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": [
+          {
+            "position": {
+              "x": 550,
+              "y": 70
+            },
+            "size": {
+              "width": 440,
+              "height": 550
+            },
+            "attrs": {
+              "label": {
+                "text": "Доверенная зона электронной библиотеки"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "77919656-d0a1-4469-8f5f-b342ab20b038",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Доверенная зона электронной библиотеки",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": -10,
+              "y": 160
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Пользователь"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "9f6757da-4b6c-44af-a4f1-adfdbabb581b"
+                },
+                {
+                  "group": "right",
+                  "id": "324a48d8-2f90-4ff8-bed1-ab9495913363"
+                },
+                {
+                  "group": "bottom",
+                  "id": "8c9684a9-d86a-467a-9592-08b34aad1c73"
+                },
+                {
+                  "group": "left",
+                  "id": "95d3ec56-97fb-48ff-a453-4cf024b48bda"
+                }
+              ]
+            },
+            "id": "0374d71e-af9c-4855-8b8b-8c9464a3562c",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Пользователь",
+              "description": "Администратор электронной библиотеки",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 560,
+              "y": 145
+            },
+            "size": {
+              "width": 100,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "LibraryApp\n"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "d9c76e19-fac5-40ae-97a4-168d15088374"
+                },
+                {
+                  "group": "right",
+                  "id": "3a0443d7-c087-4357-876d-1801088ef523"
+                },
+                {
+                  "group": "bottom",
+                  "id": "f27f15ac-6089-4b91-9ee3-c0c01f4ea39e"
+                },
+                {
+                  "group": "left",
+                  "id": "ce38cdbf-d4c2-41d5-b111-eb7ed425db86"
+                }
+              ]
+            },
+            "id": "45114699-ac69-4ef0-8113-0cc7e2abd585",
+            "data": {
+              "type": "tm.Process",
+              "name": "LibraryApp\n",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "78153244-6991-4bbe-8b1d-a845d502009c",
+                  "title": "Подбор учетных данных",
+                  "status": "NotApplicable",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Кража или подбор учетных данных (логина/пароля) для входа в систему под видом легального пользователя.",
+                  "mitigation": "Rate Limiting, строгие ограничения на пароль, защита от User Enumeration",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "7"
+                },
+                {
+                  "id": "c638e4c1-8607-41e7-80b6-d76ac9610d5d",
+                  "title": "Отрицание входа",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "Пользователь может отрицать, что выполнял вход в систему, если не обеспечена надлежащая аутентификация и аудит.",
+                  "mitigation": "Логирование всех пользовательских действий",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "2"
+                },
+                {
+                  "id": "c583b7b1-2858-4a3f-9eea-3b9dff184092",
+                  "title": "Отказ в обслуживании",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "",
+                  "mitigation": "Rate Limiting, ограничение размера запросов",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "5"
+                },
+                {
+                  "id": "f20b890b-4806-487f-b68b-6ad9a9d5c023",
+                  "title": "Удаленное выполнение кода (RCE)",
+                  "status": "NotApplicable",
+                  "severity": "Critical",
+                  "type": "Elevation of privilege",
+                  "description": "Получение доступа к удаленному выполнению кода может привести к повышению привелегий пользователя до уровня Root",
+                  "mitigation": "Харденинг инфраструктуры",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "10"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 660,
+              "y": 275
+            },
+            "size": {
+              "width": 150,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "LibraryDatabase"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "d9c76e19-fac5-40ae-97a4-168d15088374"
+                },
+                {
+                  "group": "right",
+                  "id": "3a0443d7-c087-4357-876d-1801088ef523"
+                },
+                {
+                  "group": "bottom",
+                  "id": "f27f15ac-6089-4b91-9ee3-c0c01f4ea39e"
+                },
+                {
+                  "group": "left",
+                  "id": "ce38cdbf-d4c2-41d5-b111-eb7ed425db86"
+                }
+              ]
+            },
+            "id": "2480f257-7dee-4b67-a93d-b7bb6f6dc953",
+            "data": {
+              "type": "tm.Process",
+              "name": "LibraryDatabase",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "48214b6f-1680-41cb-aa8d-4aa124388d8b",
+                  "title": "Выполнение SQL-инъекций",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Внедрение SQL-инъекций (SQL Injection), если параметры не валидируются и не экранируются. Это позволяет злоумышленнику изменять, удалять или извлекать данные из БД.",
+                  "mitigation": "Использование параметризованных запросов",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "10"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            },
+            "children": []
+          },
+          {
+            "position": {
+              "x": 710,
+              "y": 510
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "PostgreSQL DB"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "0aebf3ff-33f3-48ef-bcfd-e2cd2ceb4ac4"
+                },
+                {
+                  "group": "right",
+                  "id": "f1d463f8-131c-4293-b723-80b7a7f11557"
+                },
+                {
+                  "group": "bottom",
+                  "id": "3e4a5d9c-fa86-4220-ac7c-c538fc2d78b6"
+                },
+                {
+                  "group": "left",
+                  "id": "867e105e-9f37-4d36-95e4-c34dfa3e9d1a"
+                }
+              ]
+            },
+            "id": "7bbdd9e4-4dd3-4769-b07d-91ca28c0f4e6",
+            "data": {
+              "type": "tm.Store",
+              "name": "PostgreSQL DB",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "f7ba39da-5258-438b-bef6-fa2c38d3fd06",
+                  "title": "Отказ в обсуживании в результате эксплуатации уязвимостей базы данных",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Отказ в обсуживании в результате эксплуатации уязвимостей базы данных",
+                  "mitigation": "Своевременное обновление ПО",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "5"
+                },
+                {
+                  "id": "1c8604fe-65e0-44ba-b0e1-fa1afddb76f0",
+                  "title": "Подмена данных в результате эксплуатации уязвимостей базы данных",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Подмена данных в результате эксплуатации уязвимостей базы данных",
+                  "mitigation": "Своевременное обновление ПО, управление узявимостями",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "5"
+                },
+                {
+                  "id": "37f8058b-3fd3-4b8c-ae17-fd5b86df1948",
+                  "title": "Утечка данных в результате эксплуатации уязвимостей базы данных",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure",
+                  "description": "Подмена данных в результате эксплуатации уязвимостей базы данных",
+                  "mitigation": "Mitigation or prevention such as providing backoff, resource management and avoiding forced deadlock",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 3,
+                "repudiation": 0,
+                "informationDisclosure": 3,
+                "denialOfService": 3
+              }
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Учетные данные",
+              "description": "(dbname, user, password)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "71be84e6-7f59-4c39-988f-78f52a2c932b",
+                  "title": "Перехват учетных данных",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure",
+                  "description": "Учетные данные могут быть перехвачены при передаче по сети",
+                  "mitigation": "Использовать шифрование пользовательского трафика (SSL/TLS)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "10"
+                },
+                {
+                  "id": "702253ff-c7ed-4cd8-a5aa-ade402a1bdff",
+                  "title": "Подмена данных пользователя",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "При перехвате данных злоумышленником он может подменить данные пользователя. Например, заставить подключиться к своей таблице",
+                  "mitigation": "Шифрование трафика пользователя (SSL/TLS)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "3"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 3,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Учетные данные"
+            ],
+            "id": "6dcd8b6c-1d2b-466f-b56f-3ae55ffb2666",
+            "source": {
+              "cell": "0374d71e-af9c-4855-8b8b-8c9464a3562c",
+              "port": "324a48d8-2f90-4ff8-bed1-ab9495913363"
+            },
+            "target": {
+              "cell": "45114699-ac69-4ef0-8113-0cc7e2abd585",
+              "port": "ce38cdbf-d4c2-41d5-b111-eb7ed425db86"
+            },
+            "vertices": [
+              {
+                "x": 240,
+                "y": 120
+              },
+              {
+                "x": 430,
+                "y": 120
+              },
+              {
+                "x": 500,
+                "y": 140
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "SQL-запросы",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "SQL-запросы"
+            ],
+            "id": "45ebb5bf-8f01-449f-95f8-917b5c4e4928",
+            "source": {
+              "cell": "2480f257-7dee-4b67-a93d-b7bb6f6dc953",
+              "port": "f27f15ac-6089-4b91-9ee3-c0c01f4ea39e"
+            },
+            "target": {
+              "cell": "7bbdd9e4-4dd3-4769-b07d-91ca28c0f4e6",
+              "port": "0aebf3ff-33f3-48ef-bcfd-e2cd2ceb4ac4"
+            },
+            "vertices": [
+              {
+                "x": 700,
+                "y": 385
+              },
+              {
+                "x": 670,
+                "y": 420
+              },
+              {
+                "x": 670,
+                "y": 460
+              },
+              {
+                "x": 700,
+                "y": 480
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Параметры и фильтры",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "3504a35e-2da3-4359-811c-68c5911ec265",
+                  "title": "Подмена команд",
+                  "status": "NotApplicable",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Перехват трафика между компонентами может позволить подменить команды",
+                  "mitigation": "Шифрование трафика, межсервисная аутентификация ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "10"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Параметры и фильтры"
+            ],
+            "id": "d1e09251-6b44-419d-8899-f772d313aa30",
+            "source": {
+              "cell": "45114699-ac69-4ef0-8113-0cc7e2abd585",
+              "port": "3a0443d7-c087-4357-876d-1801088ef523"
+            },
+            "target": {
+              "cell": "2480f257-7dee-4b67-a93d-b7bb6f6dc953",
+              "port": "d9c76e19-fac5-40ae-97a4-168d15088374"
+            },
+            "vertices": [
+              {
+                "x": 700,
+                "y": 175
+              },
+              {
+                "x": 790,
+                "y": 175
+              },
+              {
+                "x": 810,
+                "y": 200
+              },
+              {
+                "x": 810,
+                "y": 220
+              },
+              {
+                "x": 790,
+                "y": 240
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Команды и данные",
+              "description": "Выбор действия, данные для вставки/обновления",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "5377a272-6740-409e-b41e-44f6adc53387",
+                  "title": "Перехват команд и данных",
+                  "status": "NotApplicable",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Злоумышленник может перехватить данные пользователя",
+                  "mitigation": "Использовать шифрование пользовательского трафика (SSL/TLS)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "7"
+                },
+                {
+                  "id": "1a728bdd-8f25-49c2-86d6-b4416caca562",
+                  "title": "Подмена команд и данных",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Злоумышленник может перехватить трафик и подменить его с целью модифицировать команды и данные, чтобы управлять базой данных",
+                  "mitigation": "Шифрование трафика пользователя (SSL/TLS)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "9"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Команды и данные"
+            ],
+            "id": "9544939d-501c-4bd4-80b9-34a05ddf388c",
+            "source": {
+              "cell": "0374d71e-af9c-4855-8b8b-8c9464a3562c",
+              "port": "324a48d8-2f90-4ff8-bed1-ab9495913363"
+            },
+            "target": {
+              "cell": "45114699-ac69-4ef0-8113-0cc7e2abd585",
+              "port": "ce38cdbf-d4c2-41d5-b111-eb7ed425db86"
+            },
+            "vertices": [
+              {
+                "x": 310,
+                "y": 290
+              },
+              {
+                "x": 450,
+                "y": 270
+              },
+              {
+                "x": 520,
+                "y": 230
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Результат выполнения (данные или статус запроса)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Результат выполнения (данные или статус запроса)"
+            ],
+            "id": "fe4b655b-5ce6-4654-896c-6301fbc72799",
+            "source": {
+              "cell": "45114699-ac69-4ef0-8113-0cc7e2abd585",
+              "port": "3a0443d7-c087-4357-876d-1801088ef523"
+            },
+            "target": {
+              "cell": "2480f257-7dee-4b67-a93d-b7bb6f6dc953",
+              "port": "d9c76e19-fac5-40ae-97a4-168d15088374"
+            },
+            "vertices": [
+              {
+                "x": 700,
+                "y": 250
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Результат выполнения (данные или статус запроса)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ba0ed621-335b-41d8-af9b-5949da32ab95",
+                  "title": "Перехват данных из БД",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Злоумышленник может перехватить трафик и узнать данные пользователя",
+                  "mitigation": "Шифрование трафика (SSL/TLS)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Результат выполнения (данные или статус запроса)"
+            ],
+            "id": "d836dc2e-16be-4ef7-9320-d6c2b1050fd9",
+            "source": {
+              "cell": "0374d71e-af9c-4855-8b8b-8c9464a3562c",
+              "port": "324a48d8-2f90-4ff8-bed1-ab9495913363"
+            },
+            "target": {
+              "cell": "45114699-ac69-4ef0-8113-0cc7e2abd585",
+              "port": "ce38cdbf-d4c2-41d5-b111-eb7ed425db86"
+            },
+            "vertices": [
+              {
+                "x": 290,
+                "y": 190
+              },
+              {
+                "x": 390,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Результат выполнения (данные или статус запроса)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Результат выполнения (данные или статус запроса)"
+            ],
+            "id": "80f46790-3024-4d0b-bfd5-1656ea49b43c",
+            "source": {
+              "x": 762,
+              "y": 510
+            },
+            "target": {
+              "cell": "2480f257-7dee-4b67-a93d-b7bb6f6dc953",
+              "port": "3a0443d7-c087-4357-876d-1801088ef523"
+            },
+            "vertices": [
+              {
+                "x": 870,
+                "y": 470
+              },
+              {
+                "x": 890,
+                "y": 430
+              },
+              {
+                "x": 870,
+                "y": 390
+              }
+            ]
+          }
+        ],
+        "description": "LR-4"
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 17
+  }
+}
