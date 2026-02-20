@@ -1,0 +1,111 @@
+version: '3.8'
+
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_ADDR: "http://0.0.0.0:8200"
+      VAULT_DEV_ROOT_TOKEN_ID: "dev-only-token"
+    volumes:
+      - ./vault_data:/vault/file
+    cap_add:
+      - IPC_LOCK
+    command: server -dev
+    healthcheck:
+      test: ["CMD", "vault", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pinger_network
+
+  vault-init:
+    image: hashicorp/vault:latest
+    container_name: vault-init
+    depends_on:
+      vault:
+        condition: service_healthy
+    environment:
+      VAULT_ADDR: "http://vault:8200"
+      VAULT_TOKEN: "dev-only-token"
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./vault_data:/vault/file
+      - ./vault_init:/init
+    command: >
+      sh -c "
+      sleep 2 &&
+      vault auth enable approle &&
+      vault secrets enable -path=database kv-v2 &&
+      vault kv put database/creds username=$$DB_USER password=$$DB_PASSWORD &&
+      echo 'path \"database/data/creds\" {
+        capabilities = [\"read\"]
+      }' > /tmp/policy.hcl &&
+      vault policy write pinger-policy /tmp/policy.hcl &&
+      vault write auth/approle/role/pinger policies=pinger-policy token_ttl=1h token_max_ttl=4h &&
+      vault read -field=role_id auth/approle/role/pinger/role-id > /init/role_id.txt &&
+      vault write -f -field=secret_id auth/approle/role/pinger/secret-id > /init/secret_id.txt &&
+      echo '=== Vault initialization complete ===' &&
+      echo 'Role ID saved to vault_init/role_id.txt' &&
+      echo 'Secret ID saved to vault_init/secret_id.txt' &&
+      cat /init/role_id.txt &&
+      cat /init/secret_id.txt &&
+      sleep infinity
+      "
+    networks:
+      - pinger_network
+
+  postgres-pinger:
+    build: .
+    container_name: postgres-pinger
+    environment:
+      - CHECK_INTERVAL=${CHECK_INTERVAL:-30}
+      - LOG_FILE=${LOG_FILE}
+      - VAULT_ADDR=http://vault:8200
+      - VAULT_ROLE_ID_FILE=/run/secrets/role_id.txt
+      - VAULT_SECRET_ID_FILE=/run/secrets/secret_id.txt
+      - VAULT_SECRET_PATH=creds
+    volumes:
+      - ./logs:/app/logs
+      - ./vault_init:/run/secrets:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      vault:
+        condition: service_healthy
+      vault-init:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - pinger_network
+
+  postgres:
+    build: postgres_ru/
+    container_name: pg17ru
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - pinger_network
+
+volumes:
+  postgres_data:
+
+networks:
+  pinger_network:
+    driver: bridge
