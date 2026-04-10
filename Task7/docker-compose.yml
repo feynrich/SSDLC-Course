@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  postgres:
+    build: postgres_ru/
+    container_name: library_pg17ru_task7
+    environment:
+      POSTGRES_DB: library_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - library_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  library-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: library_web_task7
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_NAME=library_db
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - LOG_LEVEL=INFO
+      - LOG_FILE=/app/logs/app.log
+      - SECRET_KEY=${SECRET_KEY:-change-me-in-production}
+      - FLASK_PORT=5000
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - library_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  library_network:
+    driver: bridge

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Запись - {{ table_label }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ table_label }} - Запись #{{ record[id_column] }}</h1>
+    <div class="header-actions">
+        <a href="{{ url_for('view_table', table_name=table_name) }}" class="btn btn-secondary">Назад к таблице</a>
+        <a href="{{ url_for('update_record', table_name=table_name) }}" class="btn btn-warning">Редактировать</a>
+    </div>
+</div>
+
+<div class="record-detail">
+    {% for key, value in record.items() %}
+    <div class="record-field">
+        <span class="field-label">{{ key }}:</span>
+        <span class="field-value">{{ value if value is not none else '—' }}</span>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+FROM postgres:17
+
+RUN apt-get update \
+    && apt-get install -y locales \
+    && echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen \
+    && locale-gen ru_RU.UTF-8 \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV LANG ru_RU.UTF-8
+ENV LC_ALL ru_RU.UTF-8
+
+COPY 01_library_create.sql /docker-entrypoint-initdb.d/
+COPY 02_library_data.sql /docker-entrypoint-initdb.d/
+COPY 03_library_access.sql /docker-entrypoint-initdb.d/

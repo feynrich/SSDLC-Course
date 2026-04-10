@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Добавление записи - Библиотека{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Добавление записи</h1>
+</div>
+
+{% if not table_name %}
+<div class="table-selector">
+    <h2>Выберите таблицу для добавления записи:</h2>
+    <div class="table-links">
+        {% for tbl, label in tables.items() %}
+        <a href="{{ url_for('add_record', table_name=tbl) }}" class="card card-link card-sm">
+            <h3>{{ label }}</h3>
+            <p>{{ fields_map[tbl]|length }} полей</p>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="form-card">
+    <h2>{{ table_label }}</h2>
+    <form method="POST" action="{{ url_for('add_record', table_name=table_name) }}">
+        <input type="hidden" name="table_name" value="{{ table_name }}">
+
+        {% for field in fields %}
+        <div class="form-group">
+            <label for="{{ field.name }}">
+                {{ field.label }}
+                {% if field.required %}<span class="required">*</span>{% endif %}
+            </label>
+
+            {% if field.type == 'textarea' %}
+            <textarea id="{{ field.name }}" name="{{ field.name }}"
+                      rows="3" {% if field.required %}required{% endif %}></textarea>
+
+            {% elif field.type == 'select' %}
+            <select id="{{ field.name }}" name="{{ field.name }}">
+                <option value="">-- Выберите --</option>
+                {% for opt in field.options %}
+                <option value="{{ opt }}">{{ opt }}</option>
+                {% endfor %}
+            </select>
+
+            {% else %}
+            <input type="{{ field.type }}" id="{{ field.name }}" name="{{ field.name }}"
+                   {% if field.required %}required{% endif %}>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Добавить</button>
+            <a href="{{ url_for('view_table', table_name=table_name) }}" class="btn btn-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

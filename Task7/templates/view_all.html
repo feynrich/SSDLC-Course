@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Все таблицы - Библиотека{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Просмотр всех таблиц</h1>
+    <div class="table-links">
+        {% for tbl, label in tables.items() %}
+        <a href="{{ url_for('view_table', table_name=tbl) }}"
+           class="btn btn-secondary btn-sm">{{ label }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+{% for tbl, data in all_data.items() %}
+<div class="table-section">
+    <h2>
+        {{ tables[tbl] }}
+        <span class="badge">{{ data.records|length }} записей</span>
+    </h2>
+
+    {% if data.records %}
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    {% for col in data.columns %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in data.records %}
+                <tr>
+                    {% for col in data.columns %}
+                    <td>{{ record[col] if record[col] is not none else '' }}</td>
+                    {% endfor %}
+                    <td>
+                        <a href="{{ url_for('view_table', table_name=tbl) }}" class="btn btn-sm">Подробнее</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="empty-message">Нет данных</p>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

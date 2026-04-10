@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Главная - Библиотека{% endblock %}
+
+{% block content %}
+<div class="index-page">
+    <h1>Система управления библиотекой</h1>
+    <p class="welcome">Добро пожаловать, <strong>{{ session.user }}</strong>!</p>
+
+    <div class="card-grid">
+        <a href="{{ url_for('view_table') }}" class="card card-link">
+            <div class="card-icon">&#128196;</div>
+            <h2>Просмотр таблиц</h2>
+            <p>Просмотр всех таблиц базы данных с возможностью фильтрации по отдельным таблицам</p>
+        </a>
+
+        <a href="{{ url_for('add_record') }}" class="card card-link">
+            <div class="card-icon">&#10133;</div>
+            <h2>Добавление записей</h2>
+            <p>Добавление новых строк в таблицы: авторы, жанры, книги, выдача книг</p>
+        </a>
+
+        <a href="{{ url_for('update_record') }}" class="card card-link">
+            <div class="card-icon">&#9998;</div>
+            <h2>Обновление записей</h2>
+            <p>Редактирование существующих записей в таблицах базы данных</p>
+        </a>
+    </div>
+
+    <div class="quick-links">
+        <h3>Быстрый переход к таблицам:</h3>
+        <div class="table-links">
+            {% for tbl, label in tables.items() %}
+            <a href="{{ url_for('view_table', table_name=tbl) }}" class="btn btn-secondary">{{ label }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

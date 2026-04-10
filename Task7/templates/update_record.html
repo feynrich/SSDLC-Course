@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Обновление записи - Библиотека{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Обновление записи</h1>
+</div>
+
+{% if table_name is not defined or not table_name %}
+<div class="table-selector">
+    <h2>Выберите таблицу и укажите ID записи для обновления:</h2>
+
+    <form method="POST" action="{{ url_for('update_record') }}">
+        <input type="hidden" name="action" value="load">
+
+        <div class="form-group">
+            <label for="table_name">Таблица</label>
+            <select id="table_name" name="table_name" required>
+                <option value="">-- Выберите таблицу --</option>
+                {% for tbl, label in tables.items() %}
+                <option value="{{ tbl }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="record_id">ID записи</label>
+            <input type="number" id="record_id" name="record_id"
+                   placeholder="Введите ID записи" required min="1">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Загрузить запись</button>
+        </div>
+    </form>
+</div>
+{% else %}
+<div class="table-selector">
+    <h2>Обновление записи в таблице «{{ table_label }}»</h2>
+
+    <form method="POST" action="{{ url_for('update_record', table_name=table_name) }}">
+        <input type="hidden" name="action" value="load">
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="table_name_fixed">Таблица</label>
+                <input type="text" id="table_name_fixed" name="table_name"
+                       value="{{ table_name }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="record_id">ID записи</label>
+                <input type="number" id="record_id" name="record_id"
+                       placeholder="Введите ID" required min="1">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Загрузить запись</button>
+            <a href="{{ url_for('view_table', table_name=table_name) }}" class="btn btn-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Редактирование - {{ table_label }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Редактирование записи #{{ record_id }} — {{ table_label }}</h1>
+    <div class="header-actions">
+        <a href="{{ url_for('view_record', table_name=table_name, record_id=record_id) }}"
+           class="btn btn-secondary">Просмотр</a>
+        <a href="{{ url_for('view_table', table_name=table_name) }}"
+           class="btn btn-secondary">Назад к таблице</a>
+    </div>
+</div>
+
+<div class="form-card">
+    <h2>Текущие данные:</h2>
+
+    <form method="POST" action="{{ url_for('update_record', table_name=table_name) }}">
+        <input type="hidden" name="action" value="update">
+        <input type="hidden" name="table_name" value="{{ table_name }}">
+        <input type="hidden" name="record_id" value="{{ record_id }}">
+
+        {% for field in fields %}
+        <div class="form-group">
+            <label for="{{ field.name }}">{{ field.label }}</label>
+
+            {% if field.type == 'textarea' %}
+            <textarea id="{{ field.name }}" name="{{ field.name }}" rows="3">{{ record[field.name] if record[field.name] is not none else '' }}</textarea>
+
+            {% elif field.type == 'select' %}
+            <select id="{{ field.name }}" name="{{ field.name }}">
+                <option value="">-- Не изменять --</option>
+                {% for opt in field.options %}
+                <option value="{{ opt }}" {% if record[field.name] == opt %}selected{% endif %}>{{ opt }}</option>
+                {% endfor %}
+            </select>
+
+            {% else %}
+            <input type="{{ field.type }}" id="{{ field.name }}" name="{{ field.name }}"
+                   value="{{ record[field.name] if record[field.name] is not none else '' }}">
+            {% endif %}
+
+            <small class="field-hint">Текущее: {{ record[field.name] if record[field.name] is not none else '(пусто)' }}</small>
+        </div>
+        {% endfor %}
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+            <a href="{{ url_for('view_table', table_name=table_name) }}" class="btn btn-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
